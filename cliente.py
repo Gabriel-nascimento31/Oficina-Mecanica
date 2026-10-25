@@ -8,4 +8,4 @@ class Cliente:
         self.veiculos_cadastrados = []
     
 
-clientes = Lista
+clientes = Lista()

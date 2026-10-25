@@ -7,5 +7,5 @@ class Atendimento:
         self.data_chegada = data_chegada
         self.queixa_relatada = queixa_relatada
 
-fila_normal = Fila
-fila_prioritaria = Fila
+fila_normal = Fila()
+fila_prioritaria = Fila()

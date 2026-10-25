@@ -11,7 +11,7 @@ class Fila:
         self.tamanho = 0
 
     def enfileirar(self, dado):
-        novo_no = No_fila
+        novo_no = No_fila(dado)
         if self.inicio is None:
             self.inicio = novo_no
             self.fim = self.inicio
