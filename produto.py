@@ -8,4 +8,5 @@ class Produto:
         self.data_compra = data_compra
         self.data_validade = data_validade
         self.quantidade = quantidade
-        
+
+peça = Produto
