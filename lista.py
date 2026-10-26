@@ -10,7 +10,7 @@ class Lista:
         self.tamanho = 0
     
     def adicionar(self, dado):
-        novo_no = No_lista()
+        novo_no = No_lista(dado)
         if self.fim:
             self.fim.ponteiro = novo_no
             self.fim = novo_no

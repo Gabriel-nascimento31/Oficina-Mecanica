@@ -22,3 +22,13 @@ atendimento9 = Atendimento('JIW0192', 'Diego Almeida', 'barulho de estalo ao est
 
 fila_normal = Fila()
 fila_prioritaria = Fila()
+
+fila_normal.enfileirar(atendimento1)
+fila_normal.enfileirar(atendimento2)
+fila_normal.enfileirar(atendimento3)
+fila_normal.enfileirar(atendimento4)
+fila_normal.enfileirar(atendimento5)
+fila_normal.enfileirar(atendimento6)
+fila_prioritaria.enfileirar(atendimento7)
+fila_prioritaria.enfileirar(atendimento8)
+fila_prioritaria.enfileirar(atendimento9)
