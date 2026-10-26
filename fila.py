@@ -1,13 +1,13 @@
 class No_fila:
-    def __init__(self, dado, ponteiro, proximo):
+    def __init__(self, dado, ponteiro=None, proximo=None):
         self.dado = dado
-        self.ponteiro = None
-        self.proximo = None
+        self.ponteiro = ponteiro
+        self.proximo = proximo
 
 class Fila:
-    def __init__(self, inicio, fim, tamanho):
-        self.inicio = None
-        self.fim = None
+    def __init__(self, inicio=None, fim=None):
+        self.inicio = inicio
+        self.fim = fim
         self.tamanho = 0
 
     def enfileirar(self, dado):

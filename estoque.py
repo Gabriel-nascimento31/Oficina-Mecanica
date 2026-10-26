@@ -1,3 +1,3 @@
 from fila import Fila
 
-estoque = Fila
+estoque = Fila()

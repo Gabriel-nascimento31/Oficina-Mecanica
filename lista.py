@@ -1,16 +1,16 @@
 class No_lista:
-    def __init__(self, dado, ponteiro):
+    def __init__(self, dado=None, ponteiro=None):
         self.dado = dado
-        self.ponteiro = None
+        self.ponteiro = ponteiro
 
 class Lista:
-    def __init__(self, inicio, fim):
-        self.inicio = None
-        self.fim = None
+    def __init__(self, inicio=None, fim=None):
+        self.inicio = inicio
+        self.fim = fim
         self.tamanho = 0
     
     def adicionar(self, dado):
-        novo_no = No_lista(dado)
+        novo_no = No_lista()
         if self.fim:
             self.fim.ponteiro = novo_no
             self.fim = novo_no
