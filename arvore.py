@@ -89,9 +89,9 @@ for item in ["Chassi / Monobloco", "Painéis Externos (Portas, Capô, Para-lamas
     carroceria.adicionar_filho(No_arvore(item))
 veiculo.adicionar_filho(carroceria)
 
-
-
 print(veiculo)
+
+
 
 
 
