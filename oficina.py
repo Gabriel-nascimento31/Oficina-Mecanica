@@ -37,4 +37,5 @@ def abrir_ordem_servico():
     servicos_utilizados = list(input('Digite os serviços realizados no concerto do veículo: '))
 
     nova_os = Ordem_servico(numero_os, placa, cliente, mecanico, data_abertura, pecas_utilizadas, servicos_utilizados)
+    fila_prioritaria.desenfileirar(nova_os)
     
