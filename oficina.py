@@ -28,14 +28,27 @@ def chegada_veiculo():
 numero_os = 0
 def abrir_ordem_servico():
     global numero_os
+    atendimento_atual = None
+    if fila_prioritaria.tamanho > 0:
+        atendimento_atual = fila_prioritaria.desenfileirar()
+        print('Atendendo veículo da fila prioritária (guincho)')
+    elif fila_normal.tamanho > 0:
+        atendimento_atual = fila_normal.desenfileirar()
+        print('Atendendo veículo da fila normal')
+    else:
+        print('Não há veículos aguardando na fila de atendimento ')
+        return
+
+    veiculo_atendido = atendimento_atual.dado
+    
     numero_os += 1
     placa = input('Digite a placa do veículo: ')
     cliente = input('Digite o nome do cliente: ')
     mecanico = input('Digite o nome do mecânico responsável pela ordem: ')
     data_abertura = datetime.now()
-    pecas_utilizadas = list(input('Digite as peças utiilizadas no concerto do veículo: '))
-    servicos_utilizados = list(input('Digite os serviços realizados no concerto do veículo: '))
+    pecas_utilizadas = input('Digite as peças utiilizadas no concerto do veículo: ')
+    servicos_utilizados = input('Digite os serviços realizados no concerto do veículo: ')
 
     nova_os = Ordem_servico(numero_os, placa, cliente, mecanico, data_abertura, pecas_utilizadas, servicos_utilizados)
-    fila_prioritaria.desenfileirar(nova_os)
+    print(f'Ordem de serviço {numero_os} aberta para o veículo {veiculo_atendido.placa}')
     
