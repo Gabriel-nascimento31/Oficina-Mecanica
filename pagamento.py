@@ -1,5 +1,6 @@
+from datetime import datetime
 class Pagamento:
-    def __init__(self, nome, numero_os, forma, valor_peças, valor_mao_obra, valor_total, data_pagamento):
+    def __init__(self, nome=str, numero_os=int, forma=str, valor_peças=float, valor_mao_obra=float, valor_total=float, data_pagamento=datetime.now()):
         self.nome = nome
         self.numero_os = numero_os
         self.forma = forma

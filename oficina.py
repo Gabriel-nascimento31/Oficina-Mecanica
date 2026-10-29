@@ -7,6 +7,11 @@ from cliente import clientes
 from pagamento import Pagamento
 from veiculo import Veiculo
 from datetime import datetime
+from arvore import veiculo
+from random import choice 
+
+ordem_servicos_abertas = Lista()
+pagamentos_realizados = Lista()
 
 def chegada_veiculo():
     placa = input('Digite a placa do veículo: ')
@@ -51,4 +56,47 @@ def abrir_ordem_servico():
 
     nova_os = Ordem_servico(numero_os, placa, cliente, mecanico, data_abertura, pecas_utilizadas, servicos_utilizados)
     print(f'Ordem de serviço {numero_os} aberta para o veículo {veiculo_atendido.placa}')
+    ordem_servicos_abertas.adicionar(nova_os) 
+
+def realizar_diagnostico():
+    print('Realizando diagnóstico do veículo! ')
+    veiculo.realizar_diagnostico_recursivo()
+    print(veiculo)
+
+def fechar_ordem_servico():
+    numero = int(input('Digite o número da ordem para encerrá-la:'))
+    ordem_servicos_abertas.deletar(numero)
+    print('Ordem de serviço encerrada! ')
+
+def realizar_pagamento():
+    pagamento = Pagamento()
+    cliente = input('Digite o nome do cliente: ')
+    valor_pecas = float(input('Digite o valor das peças utilizadas na manutenção do veículo: '))
+    valor_mao_obra = float(input('Digite o valor da mão de obra que foi utilizada no trabalho: '))
+    valor_total = valor_pecas + valor_mao_obra
+    print(f'O valor total ficou R${valor_total:.2f}')
+
+    forma = input('Digite a forma de pagamento (PIX, Dinheiro ou Cartão)').lower
+    if forma == 'PIX' or 'Dinheiro' or 'Cartão':
+        pagamentos_realizados.adicionar(pagamento)
+        print('Pagamento concluído com sucesso! ')
+    else:
+        print('Entrada Inválida! Digite uma das opções das formas de pagamento! ')
+
+def adicionar_itens_estoque():
+    item = input('Digite o nome do item que deseja adicionar ao estoque: ')
+    codigo = input('Digite o código do item: ')
+    fornecedor = input('Digite o nome do fornecedor: ')
+    preco_compra = float(input('Digite o preço da compra do item: '))
+    preco_venda = float(input('Digite o preço da venda do item: '))
+    data_compra = datetime.now()
+    data_validade = input('Digite a data de validade do item: ')
+    quantidade = int(input('Digite a quantidade que deseja adicionar ao estoque: '))
     
+    estoque.enfileirar(item)
+    print(f'{item} adicionado ao estoque! ')
+
+def remover_itens_estoque():
+    item = input('Digite o nome do item que deseja dar baixa no estoque: ')
+    estoque.desenfileirar()
+    print(f'{item} dado baixa no estoque! ')

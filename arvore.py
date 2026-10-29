@@ -1,17 +1,30 @@
+from random import choice
+
 class No_arvore:
     def __init__(self, dado):
         self.dado = dado
         self.filhos = []
-
+        self.estado = 'Não avaliado'
+    
     def adicionar_filho(self, filho_no):
         self.filhos.append(filho_no)
 
+    def realizar_diagnostico_recursivo(self):
+        opcoes = ['ok', 'com defeito']
+        self.estado = choice(opcoes)
+        for filho in self.filhos:
+            filho.realizar_diagnostico_recursivo()
+    
     def __str__(self, nivel=0):
-        resultado = " " * nivel + f"-{self.dado}\n"
+        resultado = " " * nivel + f"-{self.dado} [{self.estado}]\n"
         for filho in self.filhos:
             resultado += filho.__str__(nivel + 1)
         return resultado
-
+    
+    def percorrer_profundidade(self):
+        print(self.dado)
+        for filho in self.filhos:
+            filho.percorrer_profundidade()
 
 
 
@@ -89,7 +102,7 @@ for item in ["Chassi / Monobloco", "Painéis Externos (Portas, Capô, Para-lamas
     carroceria.adicionar_filho(No_arvore(item))
 veiculo.adicionar_filho(carroceria)
 
-print(veiculo)
+#print(veiculo)
 
 
 
